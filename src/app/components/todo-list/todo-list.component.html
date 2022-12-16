@@ -1,3 +1,1 @@
-<div *ngFor="let a of TodoList">
-    <p>{{a.title}}</p>
-  </div>
+<todo-item *ngFor="let a of TodoList" [ToDoItem]="a" [id]="a.id" ></todo-item>
