@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoListComponent } from './todo-list.component';
+import { TodoItemModule } from './todo-item/todo-item.module';
 
 
 
@@ -9,10 +10,12 @@ import { TodoListComponent } from './todo-list.component';
     TodoListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TodoItemModule
   ],
   exports: [
     TodoListComponent
-  ]
+  ],
+  bootstrap: [TodoListComponent]
 })
 export class TodoListModule { }
