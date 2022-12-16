@@ -1,0 +1,36 @@
+<form [formGroup]="ToDoForm">
+
+    <article>
+        <label>
+            <strong>Title</strong>
+        </label>
+        <input type="text" formControlName="title" required />
+    </article>
+
+    <article>
+        <label>
+            <strong>Description</strong>
+        </label>
+        <textarea type="text" formControlName="description" required></textarea>
+    </article>
+    <br />
+    
+    <section formArrayName="tasks">
+        <label>
+            <strong>Tasks</strong>
+        </label>
+        <article
+            *ngFor="let a of TaskList.controls; let i = index"
+            [formGroupName]="i"
+        >
+            <input type="text" formControlName="id" hidden required />
+            <input type="text" formControlName="task" required/>
+            <input type="text" formControlName="status" hidden required />
+            
+            <br /><hr />
+        </article>
+        
+        <button type="button" (click)="addTask()">create new task</button>
+    </section>
+
+</form>

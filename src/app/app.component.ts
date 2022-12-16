@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
 
   $TodoListObservable : ToDoItemInterface[] = [];
   Filter              : FilterType          = 'all';
+  AddToDoToggle       : boolean             = true;
 
   get ToDoList(){
     if(this.Filter === 'all'){ return this.$TodoListObservable; }
