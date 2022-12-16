@@ -1,0 +1,6 @@
+<article *ngIf="Task.status === 'complete'">
+    <p><del>{{Task.task}}</del></p>
+</article>
+<article *ngIf="Task.status === 'pending'">
+    <p>{{Task.task}}</p>
+</article>
