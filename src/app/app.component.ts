@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDoItemInterface } from '@site-types';
+import { FilterType, ToDoItemInterface } from '@site-types';
 import { AppService } from './app.service';
 
 @Component({
@@ -9,11 +9,21 @@ import { AppService } from './app.service';
 })
 export class AppComponent implements OnInit{
 
-  $TodoListObservable: ToDoItemInterface[] = [];
+  $TodoListObservable : ToDoItemInterface[] = [];
+  Filter              : FilterType = 'all';
+
+  get ToDoList(){
+    if(this.Filter === 'all'){ return this.$TodoListObservable; }
+    else{
+      return this.$TodoListObservable.filter(a=> a.status === this.Filter);
+    }
+  }
   
   constructor(private dataService: AppService){}
 
   ngOnInit(): void {
     this.dataService.getTodos().subscribe(a=>{ this.$TodoListObservable = a; });
   }
+
+  public updateListType(type: FilterType):void{ this.Filter = type; }
 }

@@ -1,3 +1,8 @@
-<div *ngFor="let a of $TodoListObservable">
+<todo-filter
+  [Filter]="Filter"
+  (ChangeFilter)="updateListType($event)"
+></todo-filter>
+
+<div *ngFor="let a of ToDoList">
   <p>{{a.title}}</p>
 </div>
