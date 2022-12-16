@@ -3,6 +3,4 @@
   (ChangeFilter)="updateListType($event)"
 ></todo-filter>
 
-<div *ngFor="let a of ToDoList">
-  <p>{{a.title}}</p>
-</div>
+<todo-list [TodoList]="ToDoList"></todo-list>

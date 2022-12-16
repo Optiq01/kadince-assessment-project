@@ -10,13 +10,11 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit{
 
   $TodoListObservable : ToDoItemInterface[] = [];
-  Filter              : FilterType = 'all';
+  Filter              : FilterType          = 'all';
 
   get ToDoList(){
     if(this.Filter === 'all'){ return this.$TodoListObservable; }
-    else{
-      return this.$TodoListObservable.filter(a=> a.status === this.Filter);
-    }
+    else{ return this.$TodoListObservable.filter(a=> a.status === this.Filter); }
   }
   
   constructor(private dataService: AppService){}

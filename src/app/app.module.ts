@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TodoFilterModule } from './components/todo-filter/todo-filter.module';
+import { TodoListModule } from './components/todo-list/todo-list.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { TodoFilterModule } from './components/todo-filter/todo-filter.module';
   ],
   imports: [
     BrowserModule,
-    TodoFilterModule
+    TodoFilterModule,
+    TodoListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
