@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoItemComponent } from './todo-item.component';
+import { TodoSummaryModule } from './todo-summary/todo-summary.module';
 
 
 
@@ -9,7 +10,8 @@ import { TodoItemComponent } from './todo-item.component';
     TodoItemComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TodoSummaryModule
   ],
   exports: [
     TodoItemComponent
