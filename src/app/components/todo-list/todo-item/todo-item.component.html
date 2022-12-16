@@ -1,8 +1,14 @@
-<!--<todo-summary
+<todo-summary
     [Title]="ToDoItem.title"
     [Description]="ToDoItem.description"
     [Status]="ToDoItem.status"
     [TaskStatus]="ToDoItem.taskStatus"
-></todo-summary>-->
+    (ToggleDetail)="toggleView($event)"
+></todo-summary>
 
-<todo-detail [Description]="ToDoItem.description" [Tasks]="ToDoItem.tasks"></todo-detail>
+<todo-detail
+    *ngIf="ViewToggle"
+    [Description]="ToDoItem.description"
+    [Tasks]="ToDoItem.tasks"
+    (ToggleSummary)="toggleView($event)"
+></todo-detail>

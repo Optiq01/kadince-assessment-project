@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { TaskStatusInterface, TaskType } from '@site-types';
 
 @Component({
@@ -8,9 +8,12 @@ import { TaskStatusInterface, TaskType } from '@site-types';
 })
 export class TodoSummaryComponent{
 
-  @Input() Title!       : string;
-  @Input() Description! : string;
-  @Input() Status!      : TaskType;
-  @Input() TaskStatus!  : TaskStatusInterface;
+  @Input() Title!        : string;
+  @Input() Description!  : string;
+  @Input() Status!       : TaskType;
+  @Input() TaskStatus!   : TaskStatusInterface;
+  @Output() ToggleDetail : EventEmitter<boolean> = new EventEmitter();
+
+  public toggleDetail(): void{ this.ToggleDetail.emit(true); }
 
 }

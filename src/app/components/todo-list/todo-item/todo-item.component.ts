@@ -8,8 +8,11 @@ import { ToDoItemInterface } from '@site-types';
 })
 export class TodoItemComponent{
 
-  @Input() ToDoItem!: ToDoItemInterface;
+  @Input() ToDoItem! : ToDoItemInterface;
+  ViewToggle         : boolean = false;
 
   constructor() { }
+
+  public toggleView(state: boolean): void { this.ViewToggle = state; }
 
 }
