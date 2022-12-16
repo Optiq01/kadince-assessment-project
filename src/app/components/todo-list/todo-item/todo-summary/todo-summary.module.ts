@@ -13,6 +13,7 @@ import { TodoSummaryComponent } from './todo-summary.component';
   ],
   exports: [
     TodoSummaryComponent
-  ]
+  ],
+  bootstrap: [TodoSummaryComponent]
 })
 export class TodoSummaryModule { }

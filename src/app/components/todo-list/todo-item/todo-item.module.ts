@@ -17,6 +17,7 @@ import { TodoDetailModule } from './todo-detail/todo-detail.module';
   ],
   exports: [
     TodoItemComponent
-  ]
+  ],
+  bootstrap: [TodoItemComponent]
 })
 export class TodoItemModule { }
