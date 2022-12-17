@@ -13,5 +13,9 @@ export class AppService {
 
   public getTodos() : Observable<ToDoItemInterface[]> { return this.ToDoObserver; }
 
+  public addTodo(item: ToDoItemInterface): void {
+    this.TodoData.next([...this.TodoData.value, item]);
+  }
+
   constructor() { }
 }

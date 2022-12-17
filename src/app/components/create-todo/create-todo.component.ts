@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { TaskInterface, ToDoItemInterface } from '@site-types';
+import { AppService } from 'src/app/app.service';
 import { v4 as uuid } from 'uuid';
 
 @Component({
@@ -36,9 +38,37 @@ export class CreateTodoComponent implements OnInit {
   
   public addTask():void{ this.TaskList.push(this.createNewTask()); }
 
-  constructor() { }
+  constructor(private service: AppService) { }
 
   ngOnInit(): void {
+  }
+
+  public processForm(){
+    const formData = this.ToDoForm.value;
+
+    const newItem: ToDoItemInterface = {
+      id: formData.id,
+      title: formData.title,
+      description: formData.description,
+      tasks: [],
+      status: formData.status,
+      taskStatus: {
+        totalTasks: formData.tasks.length,
+        completedTasks: 0,
+        pendingTasks: formData.tasks.length
+      }
+    };
+
+    formData.tasks.forEach((a: TaskInterface) => {
+      newItem.tasks.push({
+        id: a.id,
+        task: a.task,
+        status: a.status
+      });
+
+    });
+
+    this.service.addTodo(newItem);
   }
 
 }
