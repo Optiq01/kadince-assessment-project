@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TaskInterface } from '@site-types';
 
 @Component({
@@ -8,6 +8,19 @@ import { TaskInterface } from '@site-types';
 })
 export class TaskItemComponent{
 
-  @Input()Task!: TaskInterface;
+  @Input() Task!         : TaskInterface;
+  @Output() UpdateStatus : EventEmitter<TaskInterface> = new EventEmitter();
+
+  public completeTask(): void{
+    this.Task.status = 'complete';
+    this.updateStatus();
+  }
+
+  public reactivateTask(): void{
+    this.Task.status = 'pending';
+    this.updateStatus();
+  }
+
+  private updateStatus(): void{ this.UpdateStatus.emit(this.Task); }
 
 }

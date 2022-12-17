@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TaskInterface } from '@site-types';
 
 @Component({
@@ -8,6 +8,15 @@ import { TaskInterface } from '@site-types';
 })
 export class TaskListComponent{
 
-  @Input() Tasks!: TaskInterface[];
+  @Input() Tasks!          : TaskInterface[];
+  @Output() UpdateTaskList : EventEmitter<TaskInterface[]> = new EventEmitter();
+
+  public updateTaskStatus(item: TaskInterface): void {
+    const itemIndex  = this.Tasks.findIndex(a=> a.id === item.id);
+    const editedList = this.Tasks.filter(a=> a.id !== item.id);
+    
+    editedList.splice(itemIndex, 0, item);
+    this.UpdateTaskList.emit(editedList);
+  }
 
 }

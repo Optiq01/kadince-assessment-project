@@ -10,8 +10,22 @@ export class TodoDetailComponent{
 
   @Input() Description!   : string;
   @Input() Tasks!         : TaskInterface[];
-  @Output() ToggleSummary : EventEmitter<boolean> = new EventEmitter();
+  @Output() ToggleSummary : EventEmitter<boolean>         = new EventEmitter();
+  @Output() UpdateDetails : EventEmitter<TaskInterface[]> = new EventEmitter();
 
-  public toggleSummary(): void { this.ToggleSummary.emit(false); }
+  ButtonText   : string = 'back';
+  TaskUpdates! : TaskInterface[];
+
+  public toggleSummary(): void {
+    if(this.TaskUpdates !== undefined){
+      this.UpdateDetails.emit(this.TaskUpdates);
+    }
+    this.ToggleSummary.emit(false);
+  }
+
+  public updateDetails(items: TaskInterface[]): void {
+    this.TaskUpdates = items;
+    this.ButtonText  = 'save';
+  }
 
 }

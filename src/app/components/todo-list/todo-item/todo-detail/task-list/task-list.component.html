@@ -1,1 +1,5 @@
-<task-item *ngFor="let a of Tasks" [Task]="a"></task-item>
+<task-item
+    *ngFor="let a of Tasks"
+    [Task]="a"
+    (UpdateStatus)="updateTaskStatus($event)"
+></task-item>
