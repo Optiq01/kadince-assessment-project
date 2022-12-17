@@ -11,7 +11,7 @@ export class AppComponent implements OnInit{
 
   $TodoListObservable : ToDoItemInterface[] = [];
   Filter              : FilterType          = 'all';
-  AddToDoToggle       : boolean             = true;
+  AddToDoToggle       : boolean             = false;
 
   get ToDoList(){
     if(this.Filter === 'all'){ return this.$TodoListObservable; }
@@ -25,4 +25,8 @@ export class AppComponent implements OnInit{
   }
 
   public updateListType(type: FilterType):void{ this.Filter = type; }
+
+  public createNewTodo(): void{
+    this.AddToDoToggle = true;
+  }
 }

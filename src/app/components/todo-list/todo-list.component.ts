@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToDoItemInterface } from '@site-types';
 
 @Component({
@@ -8,6 +8,9 @@ import { ToDoItemInterface } from '@site-types';
 })
 export class TodoListComponent {
 
-  @Input() TodoList: ToDoItemInterface[] = [];
+  @Input() TodoList : ToDoItemInterface[] = [];
+  @Output() AddTodo : EventEmitter<null>  = new EventEmitter();
+
+  public addTodo():void{ this.AddTodo.emit(); }
 
 }

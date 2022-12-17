@@ -5,4 +5,7 @@
 
 <create-todo *ngIf="AddToDoToggle"></create-todo>
 
-<todo-list [TodoList]="ToDoList"></todo-list>
+<todo-list
+  [TodoList]="ToDoList"
+  (AddTodo)="createNewTodo()"
+></todo-list>
