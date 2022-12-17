@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { TaskInterface, ToDoItemInterface } from '@site-types';
 import { AppService } from 'src/app/app.service';
@@ -10,6 +10,8 @@ import { v4 as uuid } from 'uuid';
   styleUrls: ['./create-todo.component.css']
 })
 export class CreateTodoComponent implements OnInit {
+
+  @Output() ToggleOff: EventEmitter<null> = new EventEmitter<null>();
 
   ToDoForm : FormGroup = new FormGroup({
     id          : new FormControl<string>(''),
@@ -70,5 +72,7 @@ export class CreateTodoComponent implements OnInit {
 
     this.service.addTodo(newItem);
   }
+
+  public cancelTodo():void{ this.ToggleOff.emit(); }
 
 }

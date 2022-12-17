@@ -3,7 +3,7 @@
   (ChangeFilter)="updateListType($event)"
 ></todo-filter>
 
-<create-todo *ngIf="AddToDoToggle"></create-todo>
+<create-todo *ngIf="AddToDoToggle" (ToggleOff)="closeNewTodo()"></create-todo>
 
 <todo-list
   [TodoList]="ToDoList"

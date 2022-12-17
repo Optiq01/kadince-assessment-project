@@ -29,4 +29,6 @@ export class AppComponent implements OnInit{
   public createNewTodo(): void{
     this.AddToDoToggle = true;
   }
+
+  public closeNewTodo(): void{ this.AddToDoToggle = false; }
 }
