@@ -1,0 +1,77 @@
+.mainContainer{
+    display: grid;
+    row-gap: var(--micro-1-4);
+}
+hr{
+    border: var(--line-fine) solid var(--color-pastelGreen-hex);
+}
+
+.todoTitle{
+    font-size: var(--text-subtitle-2);
+    justify-self: center;
+    color: var(--color-teal-hex);
+}
+
+.descriptionText{
+    font-size: var(--text-article-3);
+    color: var(--color-pastelGreen-hex);
+}
+
+.statusLabel{
+    color: var(--color-pastelGreen-hex);
+}
+
+.statusText{
+    font-size: var(--text-widget-2);
+}
+
+.statusPending{
+    color: var(--color-teal-hex);
+}
+
+.statusComplete{
+    color: var(--color-grayGreen-hex);
+}
+
+.taskStatContainer{
+    display: grid;
+    row-gap: var(--line-bold);
+    place-items: center;
+}
+
+.taskStats{
+    font-size: var(--text-widget-4);
+    color: var(--color-teal-hex);
+}
+
+.taskStatLabel{
+    /*color: var(--color-grayGreen-hex);*/
+}
+
+.buttonContainer{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.editButton{
+    justify-self: left;
+}
+
+.deleteButton{
+    justify-self: right;
+}
+
+.todoButton{
+    border: none;
+    margin-top: var(--xTiny-1-5);
+    font-size: var(--text-article-3);
+    --baseSize-h: calc(var(--text-article-3) + var(--line-semiWide));
+    --squishGrowth-h-start: 800px;
+    --squishGrowth-h-speed: 4;
+    --squishGrowth-h-max: var(--xTiny-2-4);
+    width: max-content;
+    padding: 0 var(--line-semiWide);
+    border-radius: var(--line-bold);
+    color: var(--color-frostBlue-hex);
+    background-color: var(--color-teal-hex);
+}

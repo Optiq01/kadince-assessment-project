@@ -1,24 +1,27 @@
-<article>
-    <p>{{Title}}</p>
-    <p>{{Description}}</p>
-    <p>{{Status}}</p>
-</article>
+<section class="mainContainer">
+    <h3 class="todoTitle">{{Title}}</h3>
+    <hr />
+    <p class="descriptionText">{{Description}}</p>
+    <p [ngClass]="Status === 'pending' ? 'statusPending' : 'statusComplete'" class="statusText">
+        <span class="statusLabel"><strong>status: </strong></span> {{Status}}
+    </p>
+    <hr />
+    <article class="taskStatContainer">
+        <p class="taskStats">
+            <span class="taskStatLabel">Total Tasks: </span> <strong>{{TaskStatus.totalTasks}}</strong>
+        </p>
+        <p class="taskStats">
+            <span class="taskStatLabel">Completed: </span> <strong>{{TaskStatus.completedTasks}}</strong>
+        </p>
+        <p class="taskStats">
+            <span class="taskStatLabel">Pending: </span> <strong>{{TaskStatus.pendingTasks}}</strong>
+        </p>
 
-<article>
-    <p>
-        Total Tasks: {{TaskStatus.totalTasks}}
-    </p>
-    <p class="taskStats">
-        Completed: {{TaskStatus.completedTasks}}
-    </p>
-    <p>
-        Pending: {{TaskStatus.pendingTasks}}
-    </p>
-    
-    <button type="button" (click)="toggleDetail()">view details</button>
-</article>
-
-<article>
-    <button type="button" (click)="editItem()">edit</button>
-    <button type="button" (click)="deleteItem()">delete</button>
-</article>
+        <button type="button" class="srcryBox todoButton" (click)="toggleDetail()">view details</button>
+    </article>
+    <hr />
+    <article class="buttonContainer">
+        <button type="button" class="srcryBox todoButton editButton" (click)="editItem()">edit</button>
+        <button type="button" class="srcryBox todoButton deleteButton" (click)="deleteItem()">delete</button>
+    </article>
+</section>
