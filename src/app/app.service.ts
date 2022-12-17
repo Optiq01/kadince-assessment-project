@@ -17,5 +17,11 @@ export class AppService {
     this.TodoData.next([...this.TodoData.value, item]);
   }
 
+  public removeTodo(index: string): void {
+    const newTodos: ToDoItemInterface[] = this.TodoData.value.filter(a=> a.id !== index);
+    
+    this.TodoData.next(newTodos);
+  }
+
   constructor() { }
 }

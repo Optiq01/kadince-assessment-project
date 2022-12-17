@@ -5,6 +5,7 @@
     [Status]="ToDoItem.status"
     [TaskStatus]="ToDoItem.taskStatus"
     (ToggleDetail)="toggleView($event)"
+    (DeleteItem)="deleteItem()"
 ></todo-summary>
 
 <todo-detail
