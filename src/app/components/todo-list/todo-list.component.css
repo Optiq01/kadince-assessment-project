@@ -1,0 +1,28 @@
+:host{
+    display: grid;
+}
+
+.todoContainer{
+    display: grid;
+    margin-top: var(--tiny-2-4);
+    justify-self: center;
+    row-gap: var(--xTiny-1-7);
+    place-items: center;
+    --baseSize-w: var(--hiMed-1-4);
+}
+
+.addButton{
+    border: none;
+    margin-top: var(--xTiny-1-5);
+    margin-bottom: var(--tiny-2-5);
+    font-size: var(--text-article-3);
+    --baseSize-h: calc(var(--text-article-3) + var(--line-semiWide));
+    --squishGrowth-h-start: 800px;
+    --squishGrowth-h-speed: 4;
+    --squishGrowth-h-max: var(--xTiny-2-4);
+    width: max-content;
+    padding: 0 var(--line-semiWide);
+    border-radius: var(--line-bold);
+    color: var(--color-frostBlue-hex);
+    background-color: var(--color-teal-hex);
+}

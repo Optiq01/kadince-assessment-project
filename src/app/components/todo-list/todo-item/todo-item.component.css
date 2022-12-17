@@ -1,0 +1,7 @@
+:host{
+    display: grid;
+    width: 98%;
+    padding: var(--micro-2-3);
+    border: solid var(--line-fine) var(--color-pastelGreen-hex);
+    border-radius: var(--line-bold);
+}
