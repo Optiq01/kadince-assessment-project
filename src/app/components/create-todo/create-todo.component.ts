@@ -90,6 +90,8 @@ private createNewTask(): FormGroup{
     this.ToggleOff.emit();
   }
 
+  public removeTask(index: number): void{ this.TaskList.removeAt(index); }
+
   public cancelTodo():void{ this.ToggleOff.emit(); }
 
 }
