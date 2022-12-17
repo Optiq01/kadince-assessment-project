@@ -29,12 +29,18 @@ export class AppComponent implements OnInit{
 
   public createNewTodo(): void{
     this.AddToDoToggle = true;
+    document.body.style.overflow = 'hidden';
   }
 
-  public closeNewTodo(): void{ this.AddToDoToggle = false; }
+  public closeNewTodo(): void{
+    this.AddToDoToggle = false;
+    this.ItemToEdit= undefined;
+    document.body.style.overflow = 'scroll';
+  }
 
   public setToDoEditor(item: ToDoItemInterface): void{
     this.ItemToEdit = item;
     this.AddToDoToggle = true;
+    document.body.style.overflow = 'hidden';
   }
 }

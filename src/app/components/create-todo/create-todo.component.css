@@ -1,0 +1,103 @@
+:host{
+    z-index: 111;
+    background-color: #FFF;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+}
+
+.todoForm{
+    display: grid;
+    row-gap: var(--micro-2-4);
+    justify-items: center;
+    margin-top: var(--xTiny-2-3);
+    grid-auto-rows: auto;
+}
+
+.controlContainer{
+    display: grid;
+    row-gap: var(--line-bold);
+    width: 100%;
+}
+
+.inputLabel{
+    font-size: var(--text-caption-4);
+    text-align: center;
+    height: auto;
+    color: var(--color-grayGreen-hex);
+}
+
+.textInput{
+    font-size: var(--text-widget-4);
+    justify-self: center;
+    --baseSize-w: var(--hiMed-1-4);
+    --crushGap-w: var(--micro-2-5);
+    color: var(--color-teal-hex);
+}
+
+.descriptionInput{
+    justify-self: center;
+    resize: none;
+    --baseSize-w: var(--loMed-2-8);
+    --crushGap-w: var(--micro-2-3);
+    --baseSize-h: var(--tiny-1-4);
+    font-size: var(--text-widget-2);
+    color: var(--color-teal-hex);
+}
+
+.taskContainer{
+    justify-self: center;
+    place-items: center;
+    width: 100%;
+    display: grid;
+    margin-bottom: var(--xTiny-2-3);
+}
+
+.taskList{
+    row-gap: var(--micro-2-3);
+}
+
+.taskButton{
+    border: none;
+    margin-top: var(--xTiny-1-5);
+    justify-self: center;
+    font-size: var(--text-article-3);
+    --baseSize-h: calc(var(--text-article-3) + var(--line-semiWide));
+    --squishGrowth-h-start: 800px;
+    --squishGrowth-h-speed: 4;
+    --squishGrowth-h-max: var(--xTiny-2-4);
+    width: max-content;
+    padding: 0 var(--line-semiWide);
+    border-radius: var(--line-bold);
+    color: var(--color-frostBlue-hex);
+    background-color: var(--color-teal-hex);
+}
+
+.removeButton{
+    justify-self: right;
+}
+
+.buttonContainer{
+    --baseSize-w: var(--loMed-2-3);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--line-bold);
+    margin: var(--tiny-1-5) 0;
+}
+
+hr{
+    border: var(--line-fine) solid var(--color-pastelGreen-hex);
+    width: 33%;
+}
+
+.saveButton{
+    justify-self: left;
+}
+
+.cancelButton{
+    justify-self: right;
+}

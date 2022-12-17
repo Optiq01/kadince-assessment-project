@@ -4,7 +4,7 @@
   (ChangeFilter)="updateListType($event)"
 ></todo-filter>
 
-<article *ngIf="AddToDoToggle">
+<ng-container *ngIf="AddToDoToggle">
   <create-todo
       *ngIf="ItemToEdit === undefined"
       (ToggleOff)="closeNewTodo()"
@@ -15,7 +15,7 @@
       [EditorData]="ItemToEdit"
       (ToggleOff)="closeNewTodo()"
   ></create-todo>
-</article>
+</ng-container>
 
 <todo-list
   [TodoList]="ToDoList"

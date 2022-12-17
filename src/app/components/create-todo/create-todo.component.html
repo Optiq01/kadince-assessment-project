@@ -1,40 +1,42 @@
-<form [formGroup]="ToDoForm" (ngSubmit)="processForm()">
+<form class="todoForm" [formGroup]="ToDoForm" (ngSubmit)="processForm()">
 
-    <article>
-        <label>
+    <article class="controlContainer">
+        <label class="inputLabel">
             <strong>Title</strong>
         </label>
-        <input type="text" formControlName="title" required />
+        <input class="srcryBox textInput" type="text" formControlName="title" required />
     </article>
 
-    <article>
-        <label>
+    <article class="controlContainer">
+        <label class="inputLabel">
             <strong>Description</strong>
         </label>
-        <textarea type="text" formControlName="description" required></textarea>
+        <textarea class="srcryBox descriptionInput" type="text" formControlName="description" required></textarea>
     </article>
     <br />
     
-    <section formArrayName="tasks">
-        <label>
+    <section class="controlContainer taskList" formArrayName="tasks">
+        <label class="inputLabel">
             <strong>Tasks</strong>
         </label>
         <article
+            class="taskContainer"
             *ngFor="let a of TaskList.controls; let i = index"
             [formGroupName]="i"
         >
             <input type="text" formControlName="id" hidden required />
-            <input type="text" formControlName="task" required/>
+            <input class="srcryBox textInput" type="text" formControlName="task" required/>
             <input type="text" formControlName="status" hidden required />
-            <button type="button" (click)="removeTask(i)">remove</button>
-            
+            <button type="button" class="srcryBox taskButton" (click)="removeTask(i)">remove</button>
             <br /><hr />
         </article>
         
-        <button type="button" (click)="addTask()">create new task</button>
+        <button type="button" class="srcryBox taskButton" *ngIf="EditorData === undefined" (click)="addTask()">create new task</button>
     </section>
 
-    <button type="submit">save</button>
-    <button type="button" (click)="cancelTodo()">cancel</button>
+    <article class="srcryBox buttonContainer">
+        <button class="srcryBox taskButton saveButton" type="submit">save</button>
+        <button class="srcryBox taskButton cancelButton" type="button" (click)="cancelTodo()">cancel</button>
+    </article>
 
 </form>
