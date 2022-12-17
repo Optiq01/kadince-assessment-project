@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   $TodoListObservable : ToDoItemInterface[] = [];
   Filter              : FilterType          = 'all';
   AddToDoToggle       : boolean             = false;
+  ItemToEdit!         : ToDoItemInterface | undefined;
 
   get ToDoList(){
     if(this.Filter === 'all'){ return this.$TodoListObservable; }
@@ -31,4 +32,9 @@ export class AppComponent implements OnInit{
   }
 
   public closeNewTodo(): void{ this.AddToDoToggle = false; }
+
+  public setToDoEditor(item: ToDoItemInterface): void{
+    this.ItemToEdit = item;
+    this.AddToDoToggle = true;
+  }
 }

@@ -14,9 +14,11 @@
     <p>
         Pending: {{TaskStatus.pendingTasks}}
     </p>
+    
+    <button type="button" (click)="toggleDetail()">view details</button>
 </article>
 
 <article>
-    <button type="button" (click)="toggleDetail()">view details</button>
+    <button type="button" (click)="editItem()">edit</button>
     <button type="button" (click)="deleteItem()">delete</button>
 </article>

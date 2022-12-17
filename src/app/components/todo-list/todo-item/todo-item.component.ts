@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToDoItemInterface } from '@site-types';
 import { AppService } from 'src/app/app.service';
 
@@ -10,12 +10,16 @@ import { AppService } from 'src/app/app.service';
 export class TodoItemComponent{
 
   @Input() ToDoItem! : ToDoItemInterface;
-  ViewToggle         : boolean = false;
+  @Output() EditToDo : EventEmitter<ToDoItemInterface> = new EventEmitter<ToDoItemInterface>();
+  
+  ViewToggle : boolean = false;
 
   constructor(private service: AppService) { }
 
   public toggleView(state: boolean): void { this.ViewToggle = state; }
 
   public deleteItem(): void{ this.service.removeTodo(this.ToDoItem.id); }
+
+  public editToDo(): void { this.EditToDo.emit(this.ToDoItem); }
 
 }

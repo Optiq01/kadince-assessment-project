@@ -14,9 +14,12 @@ export class TodoSummaryComponent{
   @Input() TaskStatus!   : TaskStatusInterface;
   @Output() ToggleDetail : EventEmitter<boolean> = new EventEmitter();
   @Output() DeleteItem   : EventEmitter<null>    = new EventEmitter();
+  @Output() EditItem     : EventEmitter<null>    = new EventEmitter();
 
   public toggleDetail(): void{ this.ToggleDetail.emit(true); }
 
   public deleteItem(): void{ this.DeleteItem.emit(); }
+
+  public editItem(): void { this.EditItem.emit(); }
 
 }

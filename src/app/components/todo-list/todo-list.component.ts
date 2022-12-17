@@ -8,9 +8,12 @@ import { ToDoItemInterface } from '@site-types';
 })
 export class TodoListComponent {
 
-  @Input() TodoList : ToDoItemInterface[] = [];
-  @Output() AddTodo : EventEmitter<null>  = new EventEmitter();
+  @Input() TodoList  : ToDoItemInterface[]             = [];
+  @Output() AddTodo  : EventEmitter<null>              = new EventEmitter();
+  @Output() EditToDo : EventEmitter<ToDoItemInterface> = new EventEmitter<ToDoItemInterface>();
 
   public addTodo():void{ this.AddTodo.emit(); }
+
+  public editToDoItem(item: ToDoItemInterface): void{ this.EditToDo.emit(item); }
 
 }

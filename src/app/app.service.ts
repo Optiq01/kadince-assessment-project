@@ -19,7 +19,15 @@ export class AppService {
 
   public removeTodo(index: string): void {
     const newTodos: ToDoItemInterface[] = this.TodoData.value.filter(a=> a.id !== index);
-    
+
+    this.TodoData.next(newTodos);
+  }
+
+  public updateTodo(item: ToDoItemInterface): void {
+    const toDoIndex: number = this.TodoData.value.findIndex(a=> a.id === item.id);
+    const newTodos: ToDoItemInterface[] = this.TodoData.value.filter(a=> a.id !== item.id);
+
+    newTodos.splice(toDoIndex, 0, item);
     this.TodoData.next(newTodos);
   }
 

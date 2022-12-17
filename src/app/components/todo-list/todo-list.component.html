@@ -1,4 +1,8 @@
 <section>
-    <todo-item *ngFor="let a of TodoList" [ToDoItem]="a" [id]="a.id" ></todo-item>
+    <todo-item
+        *ngFor="let a of TodoList"
+        [ToDoItem]="a" [id]="a.id"
+        (EditToDo)="editToDoItem($event)"
+    ></todo-item>
     <button (click)="addTodo()">add todo</button>
 </section>

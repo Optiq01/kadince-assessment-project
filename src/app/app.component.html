@@ -3,9 +3,21 @@
   (ChangeFilter)="updateListType($event)"
 ></todo-filter>
 
-<create-todo *ngIf="AddToDoToggle" (ToggleOff)="closeNewTodo()"></create-todo>
+<article *ngIf="AddToDoToggle">
+  <create-todo
+      *ngIf="ItemToEdit === undefined"
+      (ToggleOff)="closeNewTodo()"
+  ></create-todo>
+  
+  <create-todo
+      *ngIf="ItemToEdit !== undefined"
+      [EditorData]="ItemToEdit"
+      (ToggleOff)="closeNewTodo()"
+  ></create-todo>
+</article>
 
 <todo-list
   [TodoList]="ToDoList"
   (AddTodo)="createNewTodo()"
+  (EditToDo)="setToDoEditor($event)"
 ></todo-list>
