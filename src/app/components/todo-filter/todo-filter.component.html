@@ -1,5 +1,24 @@
 <nav class="srcryBox">
-    <button type="button" (click)="updateFilter('pending')">pending</button>
-    <button type="button" (click)="updateFilter('complete')">complete</button>
-    <button type="button" (click)="updateFilter('all')">all</button>
+    
+    <button
+        [ngClass]="Filter === 'pending' ? 'active' : 'inactive'"
+        class="filterButton"
+        type="button"
+        (click)="updateFilter('pending')"
+    >pending</button>
+
+    <button
+        [ngClass]="Filter === 'complete' ? 'active' : 'inactive'"
+        class="filterButton"
+        type="button"
+        (click)="updateFilter('complete')"
+    >complete</button>
+
+    <button
+        [ngClass]="Filter === 'all' ? 'active' : 'inactive'"
+        class="filterButton"
+        type="button"
+        (click)="updateFilter('all')"
+    >all</button>
+
 </nav>
