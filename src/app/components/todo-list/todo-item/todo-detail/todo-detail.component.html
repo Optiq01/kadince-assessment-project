@@ -1,6 +1,3 @@
 <p class="descriptionText">{{Description}}</p>
-<task-list
-    [Tasks]="Tasks"
-    (UpdateTaskList)="updateDetails($event)"
-></task-list>
-<button type="button" (click)="toggleSummary()">{{ButtonText}}</button>
+<task-list [Tasks]="Tasks" (UpdateTaskList)="updateDetails($event)"></task-list>
+<button class="srcryBox toggleButton" type="button" (click)="toggleSummary()">{{ButtonText}}</button>

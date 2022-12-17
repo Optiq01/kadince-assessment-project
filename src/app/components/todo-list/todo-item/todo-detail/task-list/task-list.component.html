@@ -1,5 +1,12 @@
-<task-item
-    *ngFor="let a of Tasks"
-    [Task]="a"
-    (UpdateStatus)="updateTaskStatus($event)"
-></task-item>
+<h3 class="listTitle">Tasks</h3>
+
+<section class="listContainer">
+    <article *ngFor="let a of Tasks">
+        <task-item
+            [Task]="a"
+            (UpdateStatus)="updateTaskStatus($event)"
+        ></task-item>
+        <br />
+        <hr />
+    </article>
+</section>

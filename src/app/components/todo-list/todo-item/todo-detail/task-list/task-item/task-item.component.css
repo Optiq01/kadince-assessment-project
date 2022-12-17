@@ -1,0 +1,25 @@
+.taskContainer{
+    display: grid;
+    row-gap: var(--line-bold);
+}
+
+.taskText{
+    font-size: var(--text-article-1);
+    color: var(--color-grayGreen-hex);
+}
+
+.statusButton{
+    justify-self: right;
+    border: none;
+    margin-top: var(--xTiny-1-5);
+    font-size: var(--text-article-3);
+    --baseSize-h: calc(var(--text-article-3) + var(--line-semiWide));
+    --squishGrowth-h-start: 800px;
+    --squishGrowth-h-speed: 4;
+    --squishGrowth-h-max: var(--xTiny-2-4);
+    width: max-content;
+    padding: 0 var(--line-semiWide);
+    border-radius: var(--line-bold);
+    color: var(--color-teal-hex);
+    background-color: var(--color-grayGreen-hex);
+}

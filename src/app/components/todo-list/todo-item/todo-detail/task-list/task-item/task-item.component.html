@@ -1,8 +1,8 @@
-<article *ngIf="Task.status === 'complete'">
-    <p><del>{{Task.task}}</del></p>
+<article *ngIf="Task.status === 'complete'" class="taskContainer">
+    <p class="taskText"><del>{{Task.task}}</del></p>
     <button type="button" class="srcryBox statusButton" (click)="reactivateTask()">reactivate</button>
 </article>
-<article *ngIf="Task.status === 'pending'">
-    <p>{{Task.task}}</p>
+<article *ngIf="Task.status === 'pending'" class="taskContainer">
+    <p class="taskText">{{Task.task}}</p> 
     <button type="button" class="srcryBox statusButton" (click)="completeTask()">complete</button>
 </article>

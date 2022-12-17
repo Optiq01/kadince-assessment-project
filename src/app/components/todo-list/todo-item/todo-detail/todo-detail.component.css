@@ -1,0 +1,26 @@
+:host{
+    display: grid;
+    row-gap: var(--xTiny-1-4);
+}
+
+.descriptionText{
+    font-size: var(--text-subtitle-3);
+    color: var(--color-teal-hex);
+    text-align: center;
+}
+
+.toggleButton{
+    border: none;
+    margin-top: var(--xTiny-1-5);
+    font-size: var(--text-article-3);
+    --baseSize-h: calc(var(--text-article-3) + var(--line-semiWide));
+    --squishGrowth-h-start: 800px;
+    --squishGrowth-h-speed: 4;
+    --squishGrowth-h-max: var(--xTiny-2-4);
+    width: max-content;
+    padding: 0 var(--line-semiWide);
+    border-radius: var(--line-bold);
+    color: var(--color-frostBlue-hex);
+    background-color: var(--color-teal-hex);
+    justify-self: center;
+}

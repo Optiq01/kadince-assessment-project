@@ -1,0 +1,10 @@
+.listContainer{
+    display: grid;
+    row-gap: var(--xTiny-1-7);
+}
+.listTitle{
+    font-size: var(--text-widget-2);
+    color: var(--color-grayGreen-hex);
+    text-align: center;
+    margin-bottom: var(--micro-2-3);
+}
