@@ -28,3 +28,49 @@ export const todoFormAnimation = trigger('todoFormAnimation', [
         ]))
     ])
 ])
+
+export const taskItemAnimation = trigger('taskItemAnimation', [
+    transition('void => *', [
+        animate('222ms', keyframes([
+            style({
+                opacity: 0,
+                transform: 'translate(0px, -100px)',
+                zIndex: 0,
+                offset: 0
+            }),
+            style({
+                opacity: 1,
+                transform: 'translate(0px, 22px)',
+                zIndex: 5,
+                offset: .6
+            }),
+            style({
+                transform: 'translate(0px, -11px)',
+                offset: .8
+            }),
+            style({
+                transform: 'translate(0px, 0px)',
+                offset: 1
+
+            })
+        ]))
+    ]),
+    transition('* => void', [
+        animate('333ms', keyframes([
+            style({
+                opacity: 1,
+                transform: 'translate(0px, 0px)',
+                offset: 0
+            }),
+            style({
+                transform: 'translate(22px, 0px)',
+                offset: .5
+            }),
+            style({
+                opacity: 0,
+                transform: 'translate(-80px, 0px)',
+                offset: 1
+            })
+        ]))
+    ])
+])
