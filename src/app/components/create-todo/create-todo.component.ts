@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { TaskInterface, ToDoItemInterface } from '@site-types';
 import { AppService } from 'src/app/app.service';
 import { taskItemAnimation } from 'src/assets/animations';
@@ -25,27 +25,27 @@ export class CreateTodoComponent implements OnInit {
 
   ngOnInit(): void { this.createForm(); }
 
-private createNewTask(): FormGroup{
-    return new FormGroup({
-      id     : new FormControl<string>(uuid()),
-      task   : new FormControl<string>(''),
-      status : new FormControl<string>('pending')
-    });
-  }
+  private createNewTask(): FormGroup{
+      return new FormGroup({
+        id     : new FormControl<string>(uuid()),
+        task   : new FormControl<string>(''),
+        status : new FormControl<string>('pending')
+      });
+    }
   
   public addTask():void{ this.TaskList.push(this.createNewTask()); }
 
   private createForm(): void {
     const formData = new FormGroup({
-      id          : new FormControl<string>(this.EditorData ? this.EditorData.id : uuid()),
-      title       : new FormControl<string>(this.EditorData ? this.EditorData.title : ''),
-      description : new FormControl<string>(this.EditorData ? this.EditorData.description : ''),
+      id          : new FormControl<string>(this.EditorData ? this.EditorData.id : uuid(), [Validators.required, Validators.minLength(1)]),
+      title       : new FormControl<string>(this.EditorData ? this.EditorData.title : '', [Validators.required, Validators.minLength(1)]),
+      description : new FormControl<string>(this.EditorData ? this.EditorData.description : '', [Validators.required, Validators.minLength(1)]),
       tasks       : new FormArray<FormGroup>([]),
-      status      : new FormControl<string>(this.EditorData ? this.EditorData.status : 'pending'),
+      status      : new FormControl<string>(this.EditorData ? this.EditorData.status : 'pending', [Validators.required, Validators.minLength(1)]),
       taskStatus  : new FormGroup({
-        totalTasks     : new FormControl<number>(this.EditorData ? this.EditorData.taskStatus.totalTasks : 0),
-        completedTasks : new FormControl<number>(this.EditorData ? this.EditorData.taskStatus.completedTasks : 0),
-        pendingTasks   : new FormControl<number>(this.EditorData ? this.EditorData.taskStatus.pendingTasks : 0)
+        totalTasks     : new FormControl<number>(this.EditorData ? this.EditorData.taskStatus.totalTasks : 0, Validators.required),
+        completedTasks : new FormControl<number>(this.EditorData ? this.EditorData.taskStatus.completedTasks : 0, Validators.required),
+        pendingTasks   : new FormControl<number>(this.EditorData ? this.EditorData.taskStatus.pendingTasks : 0, Validators.required)
       })
     });
 
@@ -55,9 +55,9 @@ private createNewTask(): FormGroup{
 
       this.EditorData.tasks.forEach(a => {
         this.TaskList.push(new FormGroup({
-          id     : new FormControl<string>(a.id),
-          task   : new FormControl<string>(a.task),
-          status : new FormControl<string>(a.status)
+          id     : new FormControl<string>(a.id, [Validators.required, Validators.minLength(1)]),
+          task   : new FormControl<string>(a.task, [Validators.required, Validators.minLength(1)]),
+          status : new FormControl<string>(a.status, [Validators.required, Validators.minLength(1)])
         }))
       });
 
@@ -89,10 +89,15 @@ private createNewTask(): FormGroup{
 
     });
 
-    if(this.EditorData !== undefined){ this.service.updateTodo(newItem); }
-    else{ this.service.addTodo(newItem); }
-
-    this.ToggleOff.emit();
+    if(!this.ToDoForm.valid){ alert('One or more of your form fields are invalid'); }
+    else{
+      if(this.ToDoForm.value.tasks.length === 0){ alert('You need to create at least one task'); }
+      else{
+        if(this.EditorData !== undefined){ this.service.updateTodo(newItem); }
+        else{ this.service.addTodo(newItem); }
+        this.ToggleOff.emit();
+      }
+    }
   }
 
   public removeTask(index: number) : void{ this.TaskList.removeAt(index); }
