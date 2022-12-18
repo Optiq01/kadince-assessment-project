@@ -1,7 +1,7 @@
 :host{
     display: grid;
     row-gap: var(--xTiny-1-4);
-    background-color: var(--color-frostBlue-hex);
+    background-color: #FFF;
 }
 
 .descriptionText{

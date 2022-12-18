@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TaskInterface, ToDoItemInterface } from '@site-types';
 import { AppService } from 'src/app/app.service';
+import { todoDetailAnimation } from 'src/assets/animations';
 
 @Component({
   selector: 'todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.css']
+  styleUrls: ['./todo-item.component.css'],
+  animations: [ todoDetailAnimation ]
 })
 export class TodoItemComponent{
 
@@ -23,15 +25,15 @@ export class TodoItemComponent{
   public editToDo(): void { this.EditToDo.emit(this.ToDoItem); }
 
   public updateItem(newTasks: TaskInterface[]): void{
-    const todoStatus: number = newTasks.filter(a=> a.status === 'pending').length;
-    const newItem: ToDoItemInterface = {
+    const todoStatus : number            = newTasks.filter(a=> a.status === 'pending').length;
+    const newItem    : ToDoItemInterface = {
       ...this.ToDoItem,
-      tasks: [...newTasks],
-      status: (todoStatus > 0 ? 'pending' : 'complete'),
-      taskStatus: {
-        totalTasks: newTasks.length,
-        completedTasks: newTasks.filter(a=> a.status === 'complete').length,
-        pendingTasks: todoStatus
+      tasks      : [...newTasks],
+      status     : (todoStatus > 0 ? 'pending' : 'complete'),
+      taskStatus : {
+        totalTasks     : newTasks.length,
+        completedTasks : newTasks.filter(a=> a.status === 'complete').length,
+        pendingTasks   : todoStatus
       }
     };
 
