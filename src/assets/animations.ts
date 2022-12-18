@@ -101,3 +101,20 @@ export const todoDetailAnimation = trigger('todoDetailAnimation', [
         ]))
     ]),
 ])
+
+export const deleteTodoAnimation = trigger('deleteTodoAnimation', [
+    transition('* => void', [
+        animate('300ms', keyframes([
+            style({
+                opacity: 1,
+                transform: 'scale(1)',
+                offset: 0
+            }),
+            style({
+                opacity: 0,
+                transform: 'scale(0)',
+                offset: 1
+            })
+        ]))
+    ])
+])
