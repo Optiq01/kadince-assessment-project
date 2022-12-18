@@ -74,3 +74,30 @@ export const taskItemAnimation = trigger('taskItemAnimation', [
         ]))
     ])
 ])
+
+export const todoDetailAnimation = trigger('todoDetailAnimation', [
+    transition('void => *', [
+        animate('300ms', keyframes([
+            style({
+                transform: 'translate(0px, -100vh)',
+                offset: 0
+            }),
+            style({
+                transform: 'translate(0px, 0px)',
+                offset: 1
+            })
+        ]))
+    ]),
+    transition('* => void', [
+        animate('2ms', keyframes([
+            style({
+                opacity: 1,
+                offset: 0
+            }),
+            style({
+                opacity: 0,
+                offset: 1
+            })
+        ]))
+    ]),
+])
