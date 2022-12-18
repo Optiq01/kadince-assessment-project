@@ -26,7 +26,7 @@ hr{
 }
 
 .statusPending{
-    color: var(--color-teal-hex);
+    color: var(--color-brightGreen-hex);
 }
 
 .statusComplete{
@@ -41,7 +41,11 @@ hr{
 
 .taskStats{
     font-size: var(--text-widget-4);
-    color: var(--color-teal-hex);
+    color: var(--color-brightGreen-hex);
+}
+
+.taskStatLabel{
+    color: var(--color-pastelGreen-hex);
 }
 
 .buttonContainer{

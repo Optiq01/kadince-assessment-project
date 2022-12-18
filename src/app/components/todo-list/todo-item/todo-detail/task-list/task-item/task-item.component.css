@@ -5,6 +5,13 @@
 
 .taskText{
     font-size: var(--text-article-1);
+}
+
+.taskPending{
+    color: var(--color-brightGreen-hex);
+}
+
+.taskComplete{
     color: var(--color-grayGreen-hex);
 }
 

@@ -12,6 +12,7 @@ export class TodoDetailComponent{
   @Input() Tasks!         : TaskInterface[];
   @Output() ToggleSummary : EventEmitter<boolean>         = new EventEmitter();
   @Output() UpdateDetails : EventEmitter<TaskInterface[]> = new EventEmitter();
+  @Output() ScrollToPlace : EventEmitter<null> = new EventEmitter();
 
   ButtonText   : string = 'back';
   TaskUpdates! : TaskInterface[];
@@ -20,6 +21,7 @@ export class TodoDetailComponent{
     if(this.TaskUpdates !== undefined){
       this.UpdateDetails.emit(this.TaskUpdates);
     }
+    this.ScrollToPlace.emit();
     this.ToggleSummary.emit(false);
   }
 
