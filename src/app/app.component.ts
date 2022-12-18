@@ -27,7 +27,10 @@ export class AppComponent implements OnInit{
     this.dataService.getTodos().subscribe(a=>{ this.$TodoListObservable = a; });
   }
 
-  public updateListType(type: FilterType):void{ this.Filter = type; }
+  public updateListType(type: FilterType):void{
+    this.Filter = type;
+    window.scrollTo(0,0);
+  }
 
   public createNewTodo(): void{
     this.AddToDoToggle = true;
