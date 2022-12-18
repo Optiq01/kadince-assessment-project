@@ -41,9 +41,11 @@ export class TodoItemComponent{
   }
 
   public scrollToPlace(id: string): void{
-    const element = document.getElementById(id);
+    const elementTop : number = document.getElementById(id)!.offsetTop;
+    const navHeight  : number = document.getElementById('filter')!.getBoundingClientRect().height;
+    const location   : number = (elementTop - navHeight) - 44;
 
-    element?.scrollIntoView({block: 'start', behavior: 'smooth'});
+    window.scrollTo({top: location, behavior: 'smooth'});
   }
 
 }
