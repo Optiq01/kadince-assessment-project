@@ -1,8 +1,9 @@
 <section class="srcryBox todoContainer">
     <todo-item
         *ngFor="let a of TodoList" [ToDoItem]="a"
-        [id]="a.id"
+        [attr.id]="a.id"
         (EditToDo)="editToDoItem($event)"
+        @deleteTodoAnimation
     ></todo-item>
     <button class="srcryBox addButton" (click)="addTodo()">add todo</button>
 </section>

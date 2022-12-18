@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToDoItemInterface } from '@site-types';
+import { deleteTodoAnimation } from 'src/assets/animations';
 
 @Component({
   selector: 'todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
+  animations: [ deleteTodoAnimation ]
 })
 export class TodoListComponent {
 

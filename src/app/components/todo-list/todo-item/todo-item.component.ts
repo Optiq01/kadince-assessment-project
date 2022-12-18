@@ -40,6 +40,10 @@ export class TodoItemComponent{
     this.service.updateTodo(newItem);
   }
 
-  public scrollToPlace(id: string): void{ document.getElementById(id)?.scrollIntoView(); }
+  public scrollToPlace(id: string): void{
+    const element = document.getElementById(id);
+
+    element?.scrollIntoView({block: 'start', behavior: 'smooth'});
+  }
 
 }
