@@ -1,6 +1,7 @@
 :host{
     z-index: 111;
-    background-color: #FFF;
+    background-color: rgba(228, 248, 255, .77);
+    backdrop-filter: blur(7px);
     display: block;
     width: 100%;
     height: 100vh;
