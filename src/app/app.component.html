@@ -8,12 +8,14 @@
   <create-todo
       *ngIf="ItemToEdit === undefined"
       (ToggleOff)="closeNewTodo()"
+      @todoFormAnimation
   ></create-todo>
   
   <create-todo
       *ngIf="ItemToEdit !== undefined"
       [EditorData]="ItemToEdit"
       (ToggleOff)="closeNewTodo()"
+      @todoFormAnimation
   ></create-todo>
 </ng-container>
 

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterType, ToDoItemInterface } from '@site-types';
+import { todoFormAnimation } from 'src/assets/animations';
 import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [todoFormAnimation]
 })
 export class AppComponent implements OnInit{
 
