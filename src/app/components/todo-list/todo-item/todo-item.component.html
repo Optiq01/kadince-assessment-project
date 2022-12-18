@@ -15,5 +15,6 @@
     [Tasks]="ToDoItem.tasks"
     (ToggleSummary)="toggleView($event)"
     (UpdateDetails)="updateItem($event)"
+    (ScrollToPlace)="scrollToPlace(ToDoItem.id)"
     @todoDetailAnimation
 ></todo-detail>
