@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { TodoFilterModule } from './components/todo-filter/todo-filter.module';
 import { TodoListModule } from './components/todo-list/todo-list.module';
 import { CreateTodoModule } from './components/create-todo/create-todo.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { CreateTodoModule } from './components/create-todo/create-todo.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     TodoFilterModule,
     TodoListModule,
     CreateTodoModule
