@@ -56,19 +56,20 @@ export const taskItemAnimation = trigger('taskItemAnimation', [
         ]))
     ]),
     transition('* => void', [
-        animate('333ms', keyframes([
+        animate('555ms', keyframes([
             style({
                 opacity: 1,
                 transform: 'translate(0px, 0px)',
                 offset: 0
             }),
             style({
+                opactiy: 1,
                 transform: 'translate(22px, 0px)',
                 offset: .5
             }),
             style({
                 opacity: 0,
-                transform: 'translate(-80px, 0px)',
+                transform: 'translate(-120px, 0px)',
                 offset: 1
             })
         ]))
