@@ -23,6 +23,7 @@
             class="taskContainer"
             *ngFor="let a of TaskList.controls; let i = index"
             [formGroupName]="i"
+            @taskItemAnimation
         >
             <input type="text" formControlName="id" hidden required />
             <input class="srcryBox textInput" type="text" formControlName="task" required/>
