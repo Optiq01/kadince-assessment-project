@@ -29,7 +29,7 @@
             <input class="srcryBox textInput" type="text" formControlName="task" required/>
             <input type="text" formControlName="status" hidden required />
             <button type="button" class="srcryBox taskButton" (click)="removeTask(i)">remove</button>
-            <br /><hr />
+            <hr />
         </article>
         
         <button type="button" class="srcryBox taskButton" *ngIf="EditorData === undefined" (click)="addTask()">create new task</button>

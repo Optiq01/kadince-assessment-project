@@ -64,7 +64,7 @@
 
 .taskButton{
     border: none;
-    margin-top: var(--xTiny-1-5);
+    margin: var(--xTiny-1-5) 0;
     justify-self: center;
     font-size: var(--text-article-3);
     --baseSize-h: calc(var(--text-article-3) + var(--line-semiWide));
