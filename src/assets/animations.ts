@@ -63,7 +63,7 @@ export const taskItemAnimation = trigger('taskItemAnimation', [
                 offset: 0
             }),
             style({
-                opactiy: 1,
+                opacity: 1,
                 transform: 'translate(22px, 0px)',
                 offset: .5
             }),
